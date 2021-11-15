@@ -64,7 +64,7 @@ export default {
 
   mounted() {
     this.editor = new Editor({
-      content: this.value,
+      content: JSON.parse(this.value),
       extensions: [
         StarterKit,
         Placeholder.configure({
