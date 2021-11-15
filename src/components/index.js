@@ -2,7 +2,7 @@
 import VTipTap from './editor/Component.vue';
 import VTipTapOutput from './output/Component.vue';
 
-export default {
+export {
   VTipTap,
   VTipTapOutput
 };
