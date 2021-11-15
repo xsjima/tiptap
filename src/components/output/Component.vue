@@ -41,7 +41,7 @@ export default {
       Italic,
     ];
 
-    this.html = generateHTML(this.json, exts);
+    this.html = generateHTML(JSON.parse(this.json), exts);
   },
 }
 </script>
