@@ -19,7 +19,7 @@ import Embed from './components/embed';
 export default {
   props: {
     json: {
-      type: Object,
+      type: String,
       required: true,
     }
   },
