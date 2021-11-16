@@ -165,6 +165,7 @@ export default {
   padding: 16px;
   border: 1px solid #e5e5e5;
   border-radius: 0.5rem;
+  background-color: #fff;
 
   &-focused {
     border: 1px solid #34aaff;
