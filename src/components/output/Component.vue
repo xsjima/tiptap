@@ -1,7 +1,5 @@
 <template>
-  <div class="prose-sm">
-    <div v-html="html"></div>
-  </div>
+  <div class="prose-sm" v-html="html"></div>
 </template>
 
 <script>
