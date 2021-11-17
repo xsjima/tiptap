@@ -53,6 +53,10 @@ export default {
       default() {
         return [];
       }
+    },
+    contentType: {
+      type: String,
+      required: true,
     }
   },
 
@@ -133,7 +137,7 @@ export default {
         }
 
         this.$axios
-            .$post(`/api/images/notes`, formData)
+            .$post(`/api/images/${this.contentType}`, formData)
             .then(images => {
               const nodes = [];
 
