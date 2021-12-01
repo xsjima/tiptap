@@ -1,7 +1,7 @@
 <template>
   <node-view-wrapper draggable="true" class="tiptap-image">
     <node-toolbar @delete="deleteNode"></node-toolbar>
-    <img :src="node.attrs.src" alt="" style="display: block">
+    <img :src="node.attrs.src" :data-id="node.attrs.id" alt="" style="display: block">
   </node-view-wrapper>
 </template>
 
