@@ -145,8 +145,8 @@ export default {
                 nodes.push({
                   type: 'Image',
                   attrs: {
-                    id: image.id,
-                    model_id: image.model_id,
+                    'data-id': image.id,
+                    'data-model-id': image.model_id,
                     src: image.url
                   }
                 });
