@@ -15,10 +15,7 @@ export default Node.create({
 
   addAttributes() {
     return {
-      id: {
-        default: null,
-      },
-      model_id: {
+      dataId: {
         default: null,
       },
       src: {
