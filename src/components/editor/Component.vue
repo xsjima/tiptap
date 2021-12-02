@@ -145,7 +145,7 @@ export default {
                 nodes.push({
                   type: 'Image',
                   attrs: {
-                    id: image.id,
+                    dataId: image.id,
                     src: image.url
                   }
                 });
