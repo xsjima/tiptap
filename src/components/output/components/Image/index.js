@@ -7,10 +7,6 @@ export default Node.create({
 
   group: 'block',
 
-  atom: true,
-
-  isolating: true,
-
   addAttributes() {
     return {
       dataId: {
