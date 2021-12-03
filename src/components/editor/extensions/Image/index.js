@@ -14,6 +14,9 @@ export default Node.create({
       dataId: {
         default: null,
       },
+      id: {
+        default: null,
+      },
       model_id: {
         default: null,
       },
