@@ -88,7 +88,12 @@ export default {
 
         getJSON.content.forEach(el => {
           if (el.type === 'Image') {
-            images.push(el.attrs);
+            const attrs = el.attrs;
+
+            images.push({
+              id: attrs.id,
+              model_id: attrs.model_id,
+            });
           }
         });
 
