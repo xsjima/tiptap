@@ -21,7 +21,7 @@ export default Node.create({
         default: null,
       },
       src: {
-        default: 'https://sun9-2.userapi.com/impg/0mm6xgySP_9hgMqYZjrloxolWTryJH7BVXMLvA/FoeI8j6VURs.jpg?size=998x998&quality=96&sign=5e0acc253b6fac7a98c2a2cae968f350&type=album',
+        default: '/images/no-photo.svg',
       },
     }
   },
