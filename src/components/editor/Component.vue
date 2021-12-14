@@ -87,12 +87,10 @@ export default {
         const images = [];
 
         getJSON.content.forEach(el => {
-          if (el.type === 'Image') {
-            const attrs = el.attrs;
-
+          if (el.type === 'ce-image') {
             images.push({
-              id: attrs.id,
-              model_id: attrs.model_id,
+              id: el.attrs['data-id'],
+              model_id: el.attrs.model_id,
             });
           }
         });
@@ -148,12 +146,11 @@ export default {
 
               images.forEach(image => {
                 nodes.push({
-                  type: 'Image',
+                  type: 'ce-image',
                   attrs: {
                     model_id: image.model_id,
-                    id: image.id,
                     src: image.url,
-                    dataId: image.id,
+                    'data-id': image.id,
                   }
                 });
               });

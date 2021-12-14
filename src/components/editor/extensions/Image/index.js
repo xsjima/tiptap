@@ -2,8 +2,10 @@ import { Node, mergeAttributes } from '@tiptap/core'
 import { VueNodeViewRenderer } from '@tiptap/vue-2'
 import Component from './Component.vue'
 
+const nodeName = 'ce-image';
+
 export default Node.create({
-  name: 'Image',
+  name: nodeName,
 
   group: 'block',
 
@@ -11,7 +13,7 @@ export default Node.create({
 
   addAttributes() {
     return {
-      dataId: {
+      'data-id': {
         default: null,
       },
       id: {
@@ -29,13 +31,13 @@ export default Node.create({
   parseHTML() {
     return [
       {
-        tag: 't-image',
+        tag: nodeName,
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['t-image', mergeAttributes(HTMLAttributes)]
+    return [nodeName, mergeAttributes(HTMLAttributes)]
   },
 
   addNodeView() {

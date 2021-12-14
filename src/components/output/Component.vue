@@ -11,7 +11,7 @@ import Bold from '@tiptap/extension-bold';
 import Heading from '@tiptap/extension-heading';
 import Blockquote from '@tiptap/extension-blockquote';
 import Italic from '@tiptap/extension-italic';
-import Image from './components/Image';
+import Image from './components/image';
 import Embed from './components/embed';
 
 export default {
