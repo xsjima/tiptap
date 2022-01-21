@@ -22,7 +22,7 @@ export default Node.create({
 
   addAttributes() {
     return {
-      videoid: {
+      videoId: {
         default: null,
       },
       provider: {
@@ -62,16 +62,15 @@ export default Node.create({
           (options) =>
               ({ chain, editor }) => {
                 const { url } = options;
-                const videoid = youtubeExtractId(url);
-                if (videoid) {
+                const videoId = youtubeExtractId(url);
+                if (videoId) {
                   const { selection } = editor.state;
-                  const pos = selection.$head;
 
                   return chain()
-                      .insertContentAt(pos.before(), [
+                      .insertContentAt(selection.$head.before(), [
                         {
                           type: this.name,
-                          attrs: { videoid, provider: "youtube" },
+                          attrs: { videoId, provider: "youtube" },
                         },
                       ])
                       .run();
@@ -109,16 +108,16 @@ export default Node.create({
               textContent += node.textContent;
             });
 
-            const videoid = youtubeExtractId(textContent);
+            const videoId = youtubeExtractId(textContent);
 
-            if (!videoid) return false;
+            if (!videoId) return false;
 
             this.editor
                 .chain()
                 .insertContentAt(pos.before(), [
                   {
                     type: this.name,
-                    attrs: { videoid, provider: "youtube" },
+                    attrs: { videoId, provider: "youtube" },
                   },
                 ])
                 .run();

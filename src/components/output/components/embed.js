@@ -5,7 +5,7 @@ export default Node.create({
 
   addAttributes() {
     return {
-      src: {
+      videoId: {
         default: null,
       },
     };
@@ -21,7 +21,7 @@ export default Node.create({
 
   renderHTML({ HTMLAttributes }) {
     return ['iframe', mergeAttributes({
-      src: HTMLAttributes.src,
+      src: `https://www.youtube.com/embed/${HTMLAttributes.videoId}`,
       frameborder: 0,
       allowfullscreen: true,
       allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
