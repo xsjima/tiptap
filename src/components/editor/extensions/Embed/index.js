@@ -22,11 +22,11 @@ export default Node.create({
 
   addAttributes() {
     return {
-      videoId: {
+      'video-id': {
         default: null,
       },
       provider: {
-        default: "youtube",
+        default: 'youtube',
       },
     };
   },
@@ -70,7 +70,7 @@ export default Node.create({
                       .insertContentAt(selection.$head.before(), [
                         {
                           type: this.name,
-                          attrs: { videoId, provider: "youtube" },
+                          attrs: { 'video-id': videoId, provider: "youtube" },
                         },
                       ])
                       .run();
@@ -117,7 +117,7 @@ export default Node.create({
                 .insertContentAt(pos.before(), [
                   {
                     type: this.name,
-                    attrs: { videoId, provider: "youtube" },
+                    attrs: { 'video-id': videoId, provider: "youtube" },
                   },
                 ])
                 .run();
