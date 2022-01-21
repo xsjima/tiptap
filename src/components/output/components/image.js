@@ -23,6 +23,8 @@ export default Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
+    HTMLAttributes.loading = 'lazy';
+
     return ['img', mergeAttributes(HTMLAttributes)]
   },
 })
