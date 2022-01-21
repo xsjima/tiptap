@@ -10,8 +10,10 @@ const youtubeExtractId = url => {
   return match ? match[1] : false;
 };
 
+const nodeName = 'ce-embed';
+
 export default Node.create({
-  name: 'embed',
+  name: nodeName,
 
   content: "",
   marks: "",
@@ -41,13 +43,13 @@ export default Node.create({
   parseHTML() {
     return [
       {
-        tag: 't-embed',
+        tag: nodeName,
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['t-embed', mergeAttributes(HTMLAttributes)]
+    return [nodeName, mergeAttributes(HTMLAttributes)]
   },
 
   addNodeView() {

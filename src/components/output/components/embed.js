@@ -1,11 +1,11 @@
 import { Node, mergeAttributes } from '@tiptap/core'
 
 export default Node.create({
-  name: 'embed',
+  name: 'ce-embed',
 
   addAttributes() {
     return {
-      videoid: {
+      src: {
         default: null,
       },
     };
@@ -14,14 +14,14 @@ export default Node.create({
   parseHTML() {
     return [
       {
-        tag: 't-embed',
+        tag: 'ce-embed',
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
     return ['iframe', mergeAttributes({
-      src: `https://www.youtube.com/embed/${HTMLAttributes.videoid}`,
+      src: HTMLAttributes.src,
       frameborder: 0,
       allowfullscreen: true,
       allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
