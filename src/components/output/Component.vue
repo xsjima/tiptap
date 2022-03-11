@@ -11,6 +11,7 @@ import Bold from '@tiptap/extension-bold';
 import Heading from '@tiptap/extension-heading';
 import Blockquote from '@tiptap/extension-blockquote';
 import Italic from '@tiptap/extension-italic';
+import Strike from '@tiptap/extension-strike';
 import Image from './components/image';
 import Embed from './components/embed';
 
@@ -37,6 +38,7 @@ export default {
       Embed,
       Blockquote,
       Italic,
+      Strike
     ];
 
     this.html = generateHTML(JSON.parse(this.json), exts);
