@@ -2,19 +2,16 @@
   <div>
     <bubble-menu :editor="editor" v-if="editor" :should-show="bubbleMenuShouldShow">
       <button type="button" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }">
-        H2
-      </button>
-      <button type="button" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }">
-        H3
+        Заголовок
       </button>
       <button type="button" @click="editor.chain().focus().toggleBold().run()" :class="{ 'is-active': editor.isActive('bold') }">
-        B
+        Жирный
       </button>
       <button type="button" @click="editor.chain().focus().toggleItalic().run()" :class="{ 'is-active': editor.isActive('italic') }">
         I
       </button>
       <button type="button" @click="editor.chain().focus().toggleStrike().run()" :class="{ 'is-active': editor.isActive('strike') }">
-        S
+        Зачеркнутый
       </button>
     </bubble-menu>
     <floating-menu :editor="editor" v-if="editor">
