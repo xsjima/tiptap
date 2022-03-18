@@ -1,5 +1,5 @@
 <template>
-  <div class="prose" v-html="html"></div>
+  <div class="prose prose-slate mx-auto lg:prose-lg" v-html="html"></div>
 </template>
 
 <script>
