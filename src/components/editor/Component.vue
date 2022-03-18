@@ -8,7 +8,7 @@
         Жирный
       </button>
       <button type="button" @click="editor.chain().focus().toggleItalic().run()" :class="{ 'is-active': editor.isActive('italic') }">
-        I
+        Наклонный
       </button>
       <button type="button" @click="editor.chain().focus().toggleStrike().run()" :class="{ 'is-active': editor.isActive('strike') }">
         Зачеркнутый
