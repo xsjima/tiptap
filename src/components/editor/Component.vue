@@ -27,8 +27,7 @@
   </div>
 </template>
 <script>
-import { isTextSelection, isNodeSelection } from '@tiptap/core';
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
+import { Editor, EditorContent, BubbleMenu, FloatingMenu, isTextSelection, isNodeSelection } from '@tiptap/vue-2'
 import Placeholder from '@tiptap/extension-placeholder';
 import StarterKit from '@tiptap/starter-kit'
 import Image from './extensions/Image'

@@ -5,7 +5,6 @@
   "main": "dist/tip-tap.ssr.js",
   "browser": "dist/tip-tap.esm.js",
   "module": "dist/tip-tap.esm.js",
-  "unpkg": "dist/tip-tap.min.js",
   "files": [
     "dist/*",
     "src/**/*.vue"
@@ -17,7 +16,6 @@
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "prepare": "cross-env NODE_ENV=production rollup --config build/rollup.config.js"
   },
   "devDependencies": {
