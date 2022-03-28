@@ -30,7 +30,7 @@
     "@tiptap/extension-floating-menu": "^2.0.0-beta.50",
     "@tiptap/extension-placeholder": "^2.0.0-beta.48",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
-    "@tiptap/vue-2": "^2.0.0-beta.77",
+    "@tiptap/vue-2": "2.0.0-beta.76",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "cross-env": "^7.0.3",
@@ -47,5 +47,6 @@
   },
   "engines": {
     "node": ">=12"
-  }
+  },
+  "dependencies": {}
 }
