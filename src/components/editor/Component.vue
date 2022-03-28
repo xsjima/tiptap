@@ -29,7 +29,7 @@
 <script>
 import { Editor, EditorContent, BubbleMenu, FloatingMenu, isTextSelection, isNodeSelection } from '@tiptap/vue-2'
 import Placeholder from '@tiptap/extension-placeholder';
-// import StarterKit from '@tiptap/starter-kit'
+import StarterKit from '@tiptap/starter-kit'
 import Image from './extensions/Image'
 import Embed from './extensions/Embed'
 
@@ -71,7 +71,7 @@ export default {
           ? JSON.parse(this.value)
           : '',
       extensions: [
-        // StarterKit,
+        StarterKit,
         Placeholder.configure({
           placeholder: 'Напишите что-нибудь...',
         }),
