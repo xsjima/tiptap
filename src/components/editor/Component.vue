@@ -43,6 +43,7 @@ export default {
   props: {
     value: {
       type: String,
+      default: '',
     },
     images: {
       type: Array,
@@ -67,9 +68,7 @@ export default {
 
   mounted() {
     this.editor = new Editor({
-      content: this.value
-          ? JSON.parse(this.value)
-          : '',
+      content: this.value,
       extensions: [
         StarterKit,
         Placeholder.configure({
@@ -78,9 +77,6 @@ export default {
         Image,
         Embed,
       ],
-      onCreate: ({ editor }) => {
-        this.$emit('input', editor.getHTML());
-      },
       onUpdate: ({ editor }) => {
         const getJSON = editor.getJSON();
         const images = [];
