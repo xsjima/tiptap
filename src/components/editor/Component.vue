@@ -32,6 +32,7 @@ import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
 import Paragraph from '@tiptap/extension-paragraph';
 import Text from '@tiptap/extension-text';
+import Heading from '@tiptap/extension-heading';
 import Typography from '@tiptap/extension-typography';
 import Dropcursor from '@tiptap/extension-dropcursor';
 import Gapcursor from '@tiptap/extension-gapcursor'
@@ -89,6 +90,7 @@ export default {
         Dropcursor,
         Gapcursor,
         History,
+        Heading,
         Placeholder.configure({
           placeholder: 'Напишите что-нибудь...',
         }),
