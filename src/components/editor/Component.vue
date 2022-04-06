@@ -28,10 +28,19 @@
 </template>
 <script>
 import { Editor, EditorContent, BubbleMenu, FloatingMenu, isTextSelection, isNodeSelection } from '@tiptap/vue-2'
+import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
-import StarterKit from '@tiptap/starter-kit'
-import Image from './extensions/Image'
-import Embed from './extensions/Embed'
+import Paragraph from '@tiptap/extension-paragraph';
+import Text from '@tiptap/extension-text';
+import Typography from '@tiptap/extension-typography';
+import Dropcursor from '@tiptap/extension-dropcursor';
+import Gapcursor from '@tiptap/extension-gapcursor'
+import History from '@tiptap/extension-history';
+import Bold from '@tiptap/extension-bold';
+import Strike from '@tiptap/extension-strike'
+import Italic from '@tiptap/extension-italic';
+import Image from './extensions/Image';
+import Embed from './extensions/Embed';
 
 export default {
   components: {
@@ -70,7 +79,16 @@ export default {
     this.editor = new Editor({
       content: this.value,
       extensions: [
-        StarterKit,
+        Document,
+        Text,
+        Bold,
+        Strike,
+        Italic,
+        Paragraph,
+        Typography,
+        Dropcursor,
+        Gapcursor,
+        History,
         Placeholder.configure({
           placeholder: 'Напишите что-нибудь...',
         }),
@@ -164,32 +182,52 @@ export default {
 
 <style lang="scss">
 .ProseMirror {
-  padding: 16px;
-  border: 1px solid #e5e5e5;
-  border-radius: 0.5rem;
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  min-height: 38px;
   background-color: #fff;
+  padding: 12px;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  line-height: 24px;
+  box-shadow: inset 0 2px rgb(0 0 0 / 4%);
 
-  &-focused {
-    border: 1px solid #34aaff;
-    outline: none;
+  > * + * {
+    margin-top: 16px;
+  }
+
+  p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #adb5bd;
+    pointer-events: none;
+    height: 0;
   }
 
   img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+    &.ProseMirror-selectednode {
+      outline: 3px solid #68CEF8;
+    }
   }
 
-  > * + * {
-    margin-top: 1rem;
-  }
-}
+  .ProseMirror-gapcursor {
+    position: static;
+    padding: 8px;
+    margin: -8px;
 
-/* Placeholder (at the top) */
-.ProseMirror p.is-editor-empty:first-child::before {
-  content: attr(data-placeholder);
-  float: left;
-  color: #adb5bd;
-  pointer-events: none;
-  height: 0;
+    &:after {
+      position: relative;
+      width: 1px;
+      height: 20px;
+      border-left: none;
+      margin-top: 20px;
+      background-color: #000;
+    }
+  }
 }
 
 .tippy-box {
