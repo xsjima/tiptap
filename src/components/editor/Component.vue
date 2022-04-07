@@ -197,9 +197,9 @@ export default {
   box-shadow: inset 0 2px rgb(0 0 0 / 4%);
 
   h2 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 24px;
   }
 
   > * + * {
