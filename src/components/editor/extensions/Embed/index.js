@@ -18,7 +18,6 @@ export default Node.create({
   content: "",
   marks: "",
   group: "block",
-  draggable: true,
 
   addAttributes() {
     return {

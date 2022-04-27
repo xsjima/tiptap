@@ -9,8 +9,6 @@ export default Node.create({
 
   group: 'block',
 
-  draggable: true,
-
   addAttributes() {
     return {
       'data-id': {

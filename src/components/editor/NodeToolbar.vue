@@ -2,9 +2,6 @@
   <div class="node-toolbar">
     <div class="node-toolbar-tools">
       <slot name="prepend"></slot>
-      <button type="button" data-drag-handle title="Перетащить">
-        <v-icon name="hand" class="node-toolbar-tool"></v-icon>
-      </button>
       <node-toolbar-item title="Удалить" icon="x" @click="$emit('delete')"></node-toolbar-item>
     </div>
   </div>
