@@ -55,12 +55,6 @@ export default {
       type: String,
       default: '',
     },
-    images: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
     coverId: {
       type: Number
     },
@@ -80,37 +74,24 @@ export default {
     this.editor = new Editor({
       content: this.value,
       extensions: [
-        Document,
-        Text,
         Bold,
-        Strike,
+        Document,
+        Dropcursor,
+        Embed,
+        Gapcursor,
+        Heading,
+        History,
+        Image,
         Italic,
         Paragraph,
-        Typography,
-        Dropcursor,
-        Gapcursor,
-        History,
-        Heading,
         Placeholder.configure({
           placeholder: 'Напишите что-нибудь...',
         }),
-        Image,
-        Embed,
+        Strike,
+        Text,
+        Typography,
       ],
       onUpdate: ({ editor }) => {
-        const getJSON = editor.getJSON();
-        const images = [];
-
-        getJSON.content.forEach(el => {
-          if (el.type === 'ce-image') {
-            images.push({
-              id: el.attrs['data-id'],
-              model_id: el.attrs.model_id,
-            });
-          }
-        });
-
-        this.$emit('update:images', images);
         this.$emit('input', editor.getHTML());
       },
     })
@@ -161,9 +142,8 @@ export default {
 
               images.forEach(image => {
                 nodes.push({
-                  type: 'ce-image',
+                  type: 'image',
                   attrs: {
-                    model_id: image.model_id,
                     src: image.url,
                     'data-id': image.id,
                   }

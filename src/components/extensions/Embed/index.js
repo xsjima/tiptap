@@ -10,21 +10,17 @@ const youtubeExtractId = url => {
   return match ? match[1] : false;
 };
 
-const nodeName = 'ce-embed';
-
 export default Node.create({
-  name: nodeName,
+  name: 'provider',
 
-  content: "",
-  marks: "",
-  group: "block",
+  group: 'block',
 
   addAttributes() {
     return {
-      'video-id': {
+      'data-id': {
         default: null,
       },
-      provider: {
+      'data-name': {
         default: 'youtube',
       },
     };
@@ -42,13 +38,13 @@ export default Node.create({
   parseHTML() {
     return [
       {
-        tag: nodeName,
+        tag: this.name,
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [nodeName, mergeAttributes(HTMLAttributes)]
+    return [this.name, mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)]
   },
 
   addNodeView() {
@@ -58,24 +54,24 @@ export default Node.create({
   addCommands() {
     return {
       insertVideoPlayer:
-          (options) =>
-              ({ chain, editor }) => {
-                const { url } = options;
-                const videoId = youtubeExtractId(url);
-                if (videoId) {
-                  const { selection } = editor.state;
+        (options) =>
+          ({ chain, editor }) => {
+            const { url } = options;
+            const videoId = youtubeExtractId(url);
+            if (videoId) {
+              const { selection } = editor.state;
 
-                  return chain()
-                      .insertContentAt(selection.$head.before(), [
-                        {
-                          type: this.name,
-                          attrs: { 'video-id': videoId, provider: "youtube" },
-                        },
-                      ])
-                      .run();
-                }
-                return false;
-              },
+              return chain()
+                .insertContentAt(selection.$head.before(), [
+                  {
+                    type: this.name,
+                    attrs: { 'data-id': videoId, 'data-name': "youtube" },
+                  },
+                ])
+                .run();
+            }
+            return false;
+          },
     };
   },
 
@@ -116,7 +112,7 @@ export default Node.create({
                 .insertContentAt(pos.before(), [
                   {
                     type: this.name,
-                    attrs: { 'video-id': videoId, provider: "youtube" },
+                    attrs: { 'data-id': videoId, 'data-name': "youtube" },
                   },
                 ])
                 .run();
