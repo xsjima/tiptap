@@ -168,9 +168,8 @@ export default {
   font-weight: 500;
   display: block;
   width: 100%;
-  min-height: 38px;
   background-color: #fff;
-  padding: 12px;
+  padding: 12px 12px 24px 12px;
   border: 1px solid #cfd8dc;
   border-radius: 4px;
   line-height: 24px;
