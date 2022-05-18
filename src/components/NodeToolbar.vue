@@ -32,10 +32,4 @@ export default {
   border-top-left-radius: 8px;
   overflow: hidden;
 }
-.node-toolbar-tool {
-  color: #fcfcfc;
-  min-width: 28px;
-  height: 28px;
-  padding: 4px;
-}
 </style>
