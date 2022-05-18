@@ -2,7 +2,9 @@
   <div class="node-toolbar">
     <div class="node-toolbar-tools">
       <slot name="prepend"></slot>
-      <node-toolbar-item title="Удалить" icon="x" @click="$emit('delete')"></node-toolbar-item>
+      <node-toolbar-item title="Удалить" @click="$emit('delete')">
+        <v-icon name="x" class="node-toolbar-tool"></v-icon>
+      </node-toolbar-item>
     </div>
   </div>
 </template>

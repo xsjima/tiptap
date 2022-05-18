@@ -3,11 +3,11 @@
     <node-toolbar @delete="deleteNode">
       <template #prepend>
         <node-toolbar-item
-          title="Установить на обложку"
           icon="check"
           :class="{'bg-green hover:bg-green': parseInt(editor.contentComponent.$parent.coverId) === parseInt(node.attrs['data-id'])}"
           @click="editor.contentComponent.$emit('cover', node.attrs['data-id'])"
         >
+          Обложка
         </node-toolbar-item>
       </template>
     </node-toolbar>

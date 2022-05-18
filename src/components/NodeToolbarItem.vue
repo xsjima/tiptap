@@ -1,6 +1,6 @@
 <template>
   <button type="button" :title="title" @click="$emit('click')">
-    <v-icon :name="icon" class="node-toolbar-tool"></v-icon>
+    <slot></slot>
   </button>
 </template>
 
@@ -8,10 +8,6 @@
 export default {
   props: {
     title: {
-      type: String,
-      required: true,
-    },
-    icon: {
       type: String,
       required: true,
     }
