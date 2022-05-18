@@ -34,7 +34,7 @@ export default {
 }
 .node-toolbar-tool {
   color: #fcfcfc;
-  width: 28px;
+  min-width: 28px;
   height: 28px;
   padding: 4px;
 }
