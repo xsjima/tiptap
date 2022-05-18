@@ -7,7 +7,7 @@
           :class="{'bg-green hover:bg-green': parseInt(editor.contentComponent.$parent.coverId) === parseInt(node.attrs['data-id'])}"
           @click="editor.contentComponent.$emit('cover', node.attrs['data-id'])"
         >
-          Обложка
+          <span class="node-toolbar-tool">Обложка</span>
         </node-toolbar-item>
       </template>
     </node-toolbar>
