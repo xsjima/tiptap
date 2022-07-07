@@ -1,18 +1,18 @@
 <script>
 import Vue from 'vue';
 // Uncomment import and local "components" registration if library is not registered globally.
-// import { TipTapSample } from '@/entry.esm';
+import { VTipTap } from '../src/components';
 
 export default Vue.extend({
   name: 'ServeDev',
-  // components: {
-  //  TipTapSample,
-  // }
+  components: {
+    VTipTap,
+  }
 });
 </script>
 
 <template>
   <div id="app">
-    <tip-tap-sample />
+    <v-tip-tap />
   </div>
 </template>

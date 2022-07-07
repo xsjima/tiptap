@@ -27,8 +27,7 @@
   </div>
 </template>
 <script>
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-import { isTextSelection, isNodeSelection } from '@tiptap/core'
+import { Editor, EditorContent, BubbleMenu, FloatingMenu, isTextSelection, isNodeSelection } from '@tiptap/vue-2'
 import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
 import Paragraph from '@tiptap/extension-paragraph';
@@ -103,7 +102,12 @@ export default {
       const { doc, selection } = state
       const { empty } = selection
 
-      if (isNodeSelection(state.selection)) {
+      // Почему-то перестало работать.
+      // if (isNodeSelection(state.selection)) {
+      //   return false;
+      // }
+
+      if (state.selection.hasOwnProperty('node')) {
         return false;
       }
 
