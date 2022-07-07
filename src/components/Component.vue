@@ -27,7 +27,8 @@
   </div>
 </template>
 <script>
-import { Editor, EditorContent, BubbleMenu, FloatingMenu, isTextSelection, isNodeSelection } from '@tiptap/vue-2'
+import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
+import { isTextSelection, isNodeSelection } from '@tiptap/core'
 import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
 import Paragraph from '@tiptap/extension-paragraph';
