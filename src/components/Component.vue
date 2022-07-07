@@ -1,6 +1,6 @@
 <template>
   <div>
-    <bubble-menu :editor="editor" v-if="editor" :should-show="bubbleMenuShouldShow">
+    <bubble-menu :editor="editor" v-if="editor">
       <button type="button" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()" :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }">
         Заголовок
       </button>
