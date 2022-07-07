@@ -3,7 +3,7 @@ import { VueNodeViewRenderer } from '@tiptap/vue-2'
 import Component from './Component.vue'
 
 export default Node.create({
-  name: 'image',
+  name: 'tiptap-image',
 
   group: 'block',
 
@@ -24,13 +24,13 @@ export default Node.create({
   parseHTML() {
     return [
       {
-        tag: 'img',
+        tag: 'tiptap-image',
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [this.name, mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)]
+    return ['img', mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)]
   },
 
   addNodeView() {

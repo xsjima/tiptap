@@ -11,7 +11,7 @@ const youtubeExtractId = url => {
 };
 
 export default Node.create({
-  name: 'provider',
+  name: 'tiptap-embed',
 
   group: 'block',
 
