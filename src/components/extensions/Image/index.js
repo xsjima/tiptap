@@ -30,7 +30,7 @@ export default Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['img', mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)]
+    return ['tiptap-image', mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)]
   },
 
   addNodeView() {
