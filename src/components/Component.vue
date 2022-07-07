@@ -90,6 +90,24 @@ export default {
         Strike,
         Text,
         Typography,
+        BubbleMenu.configure({
+          shouldShow: ({ editor, view, state, oldState, from, to }) => {
+            const { doc, selection } = state
+            const { empty } = selection
+
+            if (isNodeSelection(state.selection)) {
+              return false;
+            }
+
+            // Sometime check for `empty` is not enough.
+            // Doubleclick an empty paragraph returns a node size of 2.
+            // So we check also for an empty text size.
+            const isEmptyTextBlock = !doc.textBetween(from, to).length
+                && isTextSelection(state.selection)
+
+            return !(empty || isEmptyTextBlock);
+          },
+        })
       ],
       onUpdate: ({ editor }) => {
         this.$emit('input', editor.getHTML());
@@ -98,27 +116,6 @@ export default {
   },
 
   methods: {
-    bubbleMenuShouldShow({ state, from, to }) {
-      const { doc, selection } = state
-      const { empty } = selection
-
-      if (isNodeSelection(state.selection)) {
-        return false;
-      }
-
-      // Sometime check for `empty` is not enough.
-      // Doubleclick an empty paragraph returns a node size of 2.
-      // So we check also for an empty text size.
-      const isEmptyTextBlock = !doc.textBetween(from, to).length
-          && isTextSelection(state.selection)
-
-      if (empty || isEmptyTextBlock) {
-        return false
-      }
-
-      return true
-    },
-
     addVideo() {
       const url = window.prompt('Ссылка на видео');
 
