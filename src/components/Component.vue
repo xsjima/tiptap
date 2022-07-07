@@ -142,7 +142,7 @@ export default {
 
               images.forEach(image => {
                 nodes.push({
-                  type: 'image',
+                  type: 'tiptap-image',
                   attrs: {
                     src: image.url,
                     'data-id': image.id,
