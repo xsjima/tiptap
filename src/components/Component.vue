@@ -23,7 +23,7 @@
       </button>
     </floating-menu>
     <editor-content :editor="editor" @cover="$emit('update:coverId', $event)" />
-    <input type="file" ref="images" style="display: none;" @change="addImage" multiple>
+    <input type="file" ref="images" style="display: none;" @change="addImage" multiple accept="image/*">
   </div>
 </template>
 <script>
