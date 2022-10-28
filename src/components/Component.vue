@@ -18,12 +18,17 @@
       <button type="button" @click="$refs.images.click()">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
       </button>
-      <button type="button" @click="addVideo">
+      <button type="button" @click="isEmbedDialog = !isEmbedDialog">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
       </button>
     </floating-menu>
     <editor-content :editor="editor" @cover="$emit('update:coverId', $event)" />
     <input type="file" ref="images" style="display: none;" @change="addImage" multiple accept="image/*">
+    <EmbedDialog
+      v-if="isEmbedDialog"
+      @close="isEmbedDialog = !isEmbedDialog"
+      @submit="onAddVideo"
+    />
   </div>
 </template>
 <script>
@@ -42,12 +47,14 @@ import Strike from '@tiptap/extension-strike'
 import Italic from '@tiptap/extension-italic';
 import Image from './extensions/Image';
 import Embed from './extensions/Embed';
+import EmbedDialog from './EmbedDialog'
 
 export default {
   components: {
     EditorContent,
     BubbleMenu,
     FloatingMenu,
+    EmbedDialog,
   },
 
   props: {
@@ -67,6 +74,7 @@ export default {
   data() {
     return {
       editor: null,
+      isEmbedDialog: false
     }
   },
 
@@ -117,13 +125,14 @@ export default {
       return !(empty || isEmptyTextBlock);
     },
 
-    addVideo() {
-      const url = window.prompt('Ссылка на видео');
-
+    onAddVideo(url) {
       if (url) {
         this.editor.chain().focus().insertVideoPlayer({ url }).run()
       }
+
+      this.isEmbedDialog = !this.isEmbedDialog
     },
+
     addImage(event) {
       const formData = new FormData();
       const images = event.target.files;
