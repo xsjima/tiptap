@@ -93,7 +93,7 @@ export default {
         Italic,
         Paragraph,
         Placeholder.configure({
-          placeholder: 'Напишите что-нибудь...',
+          placeholder: 'Текст и/или фото и видео',
         }),
         Strike,
         Text,
