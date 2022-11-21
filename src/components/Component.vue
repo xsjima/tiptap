@@ -176,7 +176,7 @@ export default {
   display: block;
   width: 100%;
   background-color: #fff;
-  padding: 12px 12px 24px 12px;
+  padding: 12px 12px 48px 12px;
   border: 1px solid #cfd8dc;
   border-radius: 4px;
   line-height: 24px;

@@ -12,7 +12,13 @@
       </template>
     </node-toolbar>
 
-    <img :src="node.attrs.src" :data-id="node.attrs['data-id']" :data-src="node.attrs['data-src']" alt="" style="display: block">
+    <img
+      :src="node.attrs.src"
+      :data-id="node.attrs['data-id']"
+      :data-src="node.attrs['data-src']"
+      alt=""
+      :class="{'bg-gray p-1': selected}"
+      class="block" />
   </node-view-wrapper>
 </template>
 
