@@ -111,9 +111,9 @@ export default {
       const { empty } = selection
 
       // Почему-то перестало работать.
-      // if (isNodeSelection(state.selection)) {
-      //   return false;
-      // }
+      if (isNodeSelection(state.selection)) {
+        return false;
+      }
 
       if (state.selection.hasOwnProperty('node')) {
         return false;
