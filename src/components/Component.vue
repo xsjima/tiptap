@@ -40,14 +40,14 @@ import Text from '@tiptap/extension-text';
 import Heading from '@tiptap/extension-heading';
 import Typography from '@tiptap/extension-typography';
 import Dropcursor from '@tiptap/extension-dropcursor';
-import Gapcursor from '@tiptap/extension-gapcursor'
 import History from '@tiptap/extension-history';
 import Bold from '@tiptap/extension-bold';
 import Strike from '@tiptap/extension-strike'
 import Italic from '@tiptap/extension-italic';
-import Image from './extensions/Image';
-import Embed from './extensions/Embed';
+import Image from './nodes/Image';
+import Embed from './nodes/Embed';
 import EmbedDialog from './EmbedDialog'
+import { TrailingNode } from './extensions/trailing-node'
 
 export default {
   components: {
@@ -86,12 +86,12 @@ export default {
         Document,
         Dropcursor,
         Embed,
-        Gapcursor,
         Heading,
         History,
         Image,
         Italic,
         Paragraph,
+        TrailingNode,
         Placeholder.configure({
           placeholder: 'Текст и/или фото и видео',
         }),
@@ -176,7 +176,7 @@ export default {
   display: block;
   width: 100%;
   background-color: #fff;
-  padding: 12px 12px 48px 12px;
+  padding: 12px;
   border: 1px solid #cfd8dc;
   border-radius: 4px;
   line-height: 24px;
